@@ -1,8 +1,4 @@
-<h1 align="center">RoboFlow4D</h1>
-
-<p align="center">
-  <strong>RoboFlow4D: A Lightweight Flow World Model Toward Real-Time Flow-Guided Robotic Manipulation</strong>
-</p>
+<h1 align="center">RoboFlow4D: A Lightweight Flow World Model Toward Real-Time Flow-Guided Robotic Manipulation</h1>
 
 <p align="center">
   Proceedings of the International Conference on Machine Learning 2026
@@ -37,6 +33,12 @@
 <p align="center">
   <a href="https://arxiv.org/abs/2605.17522"><img src="https://img.shields.io/badge/arXiv-2605.17522-b31b1b.svg" alt="arXiv"></a>
   <a href="#citation"><img src="https://img.shields.io/badge/Citation-BibTeX-b31b1b.svg" alt="Citation"></a>
+</p>
+
+<p align="center">
+  <a href="./pipeline-true.png">
+    <img src="./pipeline-true.png" alt="RoboFlow4D pipeline" width="100%">
+  </a>
 </p>
 
 ## Overview
