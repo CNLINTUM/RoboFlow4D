@@ -37,14 +37,14 @@
 <p align="center">
   <img src="https://img.shields.io/badge/Paper-Coming_Soon-1f6feb.svg" alt="Paper coming soon">
   <img src="https://img.shields.io/badge/Video-Coming_Soon-f97316.svg" alt="Video coming soon">
-  <a href="./pipeline.pdf"><img src="https://img.shields.io/badge/Pipeline-PDF-0ea5e9.svg" alt="Pipeline PDF"></a>
+  <a href="./pipeline-true.png"><img src="https://img.shields.io/badge/Pipeline-PNG-0ea5e9.svg" alt="Pipeline PNG"></a>
   <a href="#citation"><img src="https://img.shields.io/badge/Citation-BibTeX-b31b1b.svg" alt="Citation"></a>
   <img src="https://img.shields.io/badge/Code-Coming_Soon-6b7280.svg" alt="Code coming soon">
 </p>
 
 <p align="center">
-  <a href="./pipeline.pdf">
-    <img src="./assets/pipeline.png" alt="RoboFlow4D pipeline" width="100%">
+  <a href="./pipeline-true.png">
+    <img src="./pipeline-true.png" alt="RoboFlow4D pipeline" width="100%">
   </a>
 </p>
 
@@ -64,7 +64,7 @@ RoboFlow4D follows a flow-centered manipulation pipeline:
 4. Predict future point flow from current observations.
 5. Condition robot policies on predicted flow for manipulation.
 
-The full pipeline figure is available as [pipeline.pdf](./pipeline.pdf).
+The full pipeline figure is available as [pipeline-true.png](./pipeline-true.png).
 
 ## Release Status
 
