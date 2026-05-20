@@ -35,6 +35,7 @@
 
 <p align="center">
   <a href="https://arxiv.org/abs/2605.17522"><img src="https://img.shields.io/badge/arXiv-2605.17522-b31b1b.svg" alt="arXiv"></a>
+  <a href="https://simonlinsx.github.io/RoboFlow4D_Page/"><img src="https://img.shields.io/badge/Project-Page-1f6feb.svg" alt="Project Page"></a>
   <a href="#citation"><img src="https://img.shields.io/badge/Citation-BibTeX-b31b1b.svg" alt="Citation"></a>
 </p>
 
