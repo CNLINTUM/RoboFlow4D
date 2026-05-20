@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img src="./flow-icon.svg" alt="RoboFlow4D icon" width="42" align="center">
+  <img src="./assets/flow-icon.svg" alt="RoboFlow4D icon" width="42" align="center">
   RoboFlow4D: A Lightweight Flow World Model Toward Real-Time Flow-Guided Robotic Manipulation
 </h1>
 
@@ -40,8 +40,8 @@
 </p>
 
 <p align="center">
-  <a href="./pipeline-true.png">
-    <img src="./pipeline-true.png" alt="RoboFlow4D pipeline" width="100%">
+  <a href="./assets/pipeline.png">
+    <img src="./assets/pipeline.png" alt="RoboFlow4D pipeline" width="100%">
   </a>
 </p>
 
