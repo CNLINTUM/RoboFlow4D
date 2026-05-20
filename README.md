@@ -35,57 +35,25 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Paper-Coming_Soon-1f6feb.svg" alt="Paper coming soon">
-  <img src="https://img.shields.io/badge/Video-Coming_Soon-f97316.svg" alt="Video coming soon">
-  <a href="./pipeline-true.png"><img src="https://img.shields.io/badge/Pipeline-PNG-0ea5e9.svg" alt="Pipeline PNG"></a>
+  <a href="https://arxiv.org/abs/2605.17522"><img src="https://img.shields.io/badge/arXiv-2605.17522-b31b1b.svg" alt="arXiv"></a>
   <a href="#citation"><img src="https://img.shields.io/badge/Citation-BibTeX-b31b1b.svg" alt="Citation"></a>
-  <img src="https://img.shields.io/badge/Code-Coming_Soon-6b7280.svg" alt="Code coming soon">
-</p>
-
-<p align="center">
-  <a href="./pipeline-true.png">
-    <img src="./pipeline-true.png" alt="RoboFlow4D pipeline" width="100%">
-  </a>
 </p>
 
 ## Overview
 
 RoboFlow4D is a lightweight flow world model for real-time flow-guided robotic manipulation. It models dynamic 3D point flow and uses predicted flow as a compact intermediate representation for downstream manipulation policies.
 
-This public repository currently hosts the project README and paper assets. Code, training scripts, model checkpoints, and detailed setup instructions will be released in a later update.
-
-## Pipeline
-
-RoboFlow4D follows a flow-centered manipulation pipeline:
-
-1. Track task-relevant scene points from robot demonstrations.
-2. Lift tracked points into 3D trajectories.
-3. Train a lightweight 3D flow world model.
-4. Predict future point flow from current observations.
-5. Condition robot policies on predicted flow for manipulation.
-
-The full pipeline figure is available as [pipeline-true.png](./pipeline-true.png).
-
-## Release Status
-
-- README and pipeline figure: released
-- Paper link: coming soon
-- Code: coming soon
-- Checkpoints and data processing instructions: coming soon
-
-## Acknowledgements
-
-RoboFlow4D builds on several excellent open-source projects and benchmark suites, including SpaTrackerV2, VGGT, Grounded-SAM-2, GroundingDINO, SAM 2, LIBERO, ManiSkill, SigLIP / Big Vision, PyTorch, and the broader robotics and embodied AI open-source community.
+This public repository currently hosts the project README.
 
 ## Citation
 
 If you find this project useful, please cite:
 
 ```bibtex
-@inproceedings{roboflow4d2026,
+@article{lin2026roboflow4d,
   title={RoboFlow4D: A Lightweight Flow World Model Toward Real-Time Flow-Guided Robotic Manipulation},
   author={Lin, Sixu and Chen, Junliang and Xu, Huaiyuan and Li, Zhuohao and Wang, Guangming and Jing, Yixiong and Xu, Sheng and Zhao, Runyi and Sheil, Brian and Chau, Lap-Pui and Liu, Guiliang},
-  booktitle={Proceedings of the International Conference on Machine Learning},
+  journal={arXiv preprint arXiv:2605.17522},
   year={2026}
 }
 ```
