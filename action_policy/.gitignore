@@ -1,0 +1,10 @@
+ckpts/
+checkpoints/
+runs/
+outputs/
+rollouts/
+wandb/
+*.log
+nohup.out
+__pycache__/
+*.py[cod]

@@ -1,0 +1,129 @@
+use_flow_condition: True
+
+model:
+  _target_: model.diffusion_policy.flow_diffusion_policy.FlowDiffusionPolicy
+  alignment_detach: True
+  predict_detach: True
+  freeze_vit: True
+  freeze_text: False
+  sampling_method: null
+  sampling_frame: null
+  plan_condition_type: "none"
+  target_condition_type: "none"
+  policy_condition_on_proprioception_proj: True
+  target_plan_drop_prob: 0.1
+
+  flow_encoder:
+    _target_: model.common.flow_network.FlowPos3dNoDesc
+    embed_dim: 192
+    num_freqs: 10
+    include_raw_xyz: true
+    xyz_bounds:
+      - [-1.0, -1.0, 0.0]
+      - [ 1.0,  1.0, 1.0]
+    pre_zero_out: false
+    post_zero_out: false
+    use_mix_in: false
+
+  vision_transformer_0: null
+
+  vision_transformer_0_kwargs:
+    model_name: resnet50
+    pretrained: true
+    num_classes: 0
+
+  MeanPoolTextEncoder:
+    _target_: model.common.text_encoder.MeanPoolTextEncoder
+    vocab_size: 32000
+    hidden_size: 384
+
+  state_encoder:
+    _target_: model.common.flow_network.FlowStateEncoder
+    global_pool: "token"
+    cross_attention: null
+    transformer_encoder:
+      _target_: model.common.flow_network.FlowTransformerEncoder
+      embed_dim: 384
+      depth: 4
+      num_heads: 8
+      class_token: True
+
+  proprioception_predictor: null
+
+  plan_encoder:
+    _target_: model.common.transformer.TransformerEncoder
+    embed_dim: 384
+    depth: 4
+    num_heads: 8
+
+  time_alignment_transformer:
+    _target_: model.common.transformer.TransformerEncoder
+    embed_dim: 384
+    depth: 8
+    num_heads: 8
+
+  flow_proj_in:
+    _target_: torch.nn.Linear
+    in_features: 3
+    out_features: 384
+
+  proprioception_proj_in:
+    _target_: model.common.projection.ProjectionHead
+    in_dim: 8
+    out_dim: 384
+    nlayers: 1
+    apply_norm_layer: True
+
+  diffusion_policy:
+    _target_: model.diffusion_policy.model.diffusion_model.ConditionalUnet1D
+    input_dim: 7
+    global_cond_dim: 1280  # 128(lang) + 384(img) + 384(prop) + 384(flow)
+
+noise_scheduler:
+  _target_: diffusers.DDIMScheduler
+  num_train_timesteps: 50
+  beta_start: 0.0001
+  beta_end: 0.02
+  beta_schedule: squaredcos_cap_v2
+  clip_sample: True
+  prediction_type: epsilon
+num_inference_steps: 16
+
+optimizer:
+  _target_: torch.optim.AdamW
+  lr: 1e-4
+  betas: [0.9, 0.999]
+  weight_decay: 1e-2
+  eps: 1e-08
+
+lr_scheduler: "cosine"
+num_warmup_steps: 500
+
+debug: False
+action_dim: 7
+apply_alignment_loss: False
+alignment_loss_coef: 0
+proprioception_loss_coef: 0.0
+
+ema:
+  _target_: model.common.ema_model.EMAModel
+  update_after_step: 0
+  inv_gamma: 1.0
+  power: 0.75
+  min_value: 0.0
+  max_value: 0.9999
+
+training:
+  epochs: 1001
+  gradient_accumulation_steps: 1
+  batch_size: 52
+  num_workers: 1
+  shuffle: True
+  pin_memory: True
+  persistent_workers: True
+  drop_last: False
+  ckpt_frequency: 50
+  resume: False
+  model_path: null
+  model_ckpt: null
+  use_ema: True

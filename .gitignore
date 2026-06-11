@@ -1,0 +1,43 @@
+# Python/cache
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*.egg-info/
+.DS_Store
+
+# Logs and generated artifacts
+outputs/
+logs/
+videos/
+wandb/
+profile_outputs/
+3DFlowModel/infer/
+tmp*/
+**/tmp*/
+*.log
+*.out
+*.stdout
+nohup.out
+
+# Data and checkpoints
+data/
+datasets/
+ckpts/
+checkpoints/
+backup/
+*.hdf5
+*.h5
+*.zarr/
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.wandb
+
+# Optional external dependency assets
+Grounded-SAM-2/checkpoints/
+Grounded-SAM-2/gdino_checkpoints/
+Grounded-SAM-2/demo/
+Grounded-SAM-2/demo_images/
+SpaTrackerV2/models/
+SpaTrackerV2/examples/
