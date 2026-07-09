@@ -482,7 +482,7 @@ def draw_pred_gt_tracks_on_image(
         gt_uv = rescale(gt_uv)
 
     Kp = pred_uv.shape[0]
-    colors = cm.get_cmap(cmap_name, max(Kp - 1, 1))
+    colors = plt.get_cmap(cmap_name, max(Kp - 1, 1))
 
     for n in range(0, pred_uv.shape[1], stride):
         # ---------- GT (dashed) ----------

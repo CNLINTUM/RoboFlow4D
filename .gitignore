@@ -41,3 +41,29 @@ Grounded-SAM-2/demo/
 Grounded-SAM-2/demo_images/
 SpaTrackerV2/models/
 SpaTrackerV2/examples/
+
+# local data / model outputs
+data/
+checkpoints/
+outputs/
+wandb/
+*.pt
+*.pth
+*.ckpt
+*.hdf5
+*.h5
+*.mp4
+*.avi
+*.html
+
+# backups
+*.bak
+
+# python/cache
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# env/logs
+.env
+*.log

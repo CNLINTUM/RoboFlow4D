@@ -518,8 +518,17 @@ def _canonize_vggt_chunk(pred: Dict[str, torch.Tensor]) -> Dict[str, torch.Tenso
     out["poses_pred"] = squeeze_leading_one(pred["poses_pred"]).contiguous()
     out["intrs"]      = squeeze_leading_one(pred["intrs"]).contiguous()
     
-    # vggt features
-    out["features"] = squeeze_leading_one(pred["features"]).contiguous()
+    # vggt features: newer VGGT versions may not return "features";
+    # use pose_enc as a compact per-frame fallback feature.
+    if "features" in pred:
+        feat = squeeze_leading_one(pred["features"]).contiguous()
+    elif "pose_enc" in pred:
+        feat = squeeze_leading_one(pred["pose_enc"]).contiguous()
+        if feat.dim() == 2:
+            feat = feat.unsqueeze(1)  # [T, C] -> [T, 1, C], so mean(1) keeps [T, C]
+    else:
+        raise KeyError(f"VGGT output has no features/pose_enc. Available keys: {list(pred.keys())}")
+    out["features"] = feat
 
     # points_map -> THWC
     pm = squeeze_leading_one(pred["points_map"]).contiguous()
