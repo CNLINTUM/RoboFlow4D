@@ -1349,7 +1349,7 @@ def main():
             out[k] = v
         return out
 
-    model = hydra.utils.instantiate(cfg.model)
+    model = instantiate(cfg.model)
     model.to(device)
 
     # --------- EMA (Exponential Moving Average) ---------
@@ -1360,7 +1360,7 @@ def main():
         # Keep a separate smoothed copy of weights for eval/saving
         ema_model = copy.deepcopy(model)
         ema_model.to(device)
-        ema = hydra.utils.instantiate(cfg.ema, model=ema_model)
+        ema = instantiate(cfg.ema, model=ema_model)
         print('[EMA] enabled. Will update EMA weights after each optimizer step.')
 
     tot, trn = count_params(model)
@@ -1368,8 +1368,8 @@ def main():
     print(f"Trainable parameters: {human_m(trn):8.2f} M")
     print(f"Frozen ratio:         {100.0 * (1.0 - trn / max(tot,1)):6.2f}%")
 
-    noise_scheduler = hydra.utils.instantiate(cfg.noise_scheduler)
-    optimizer = hydra.utils.instantiate(cfg.optimizer, params=model.parameters())
+    noise_scheduler = instantiate(cfg.noise_scheduler)
+    optimizer = instantiate(cfg.optimizer, params=model.parameters())
 
     best_val_loss = float("inf")
     best_val_loss_ema = float("inf")

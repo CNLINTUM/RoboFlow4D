@@ -21,7 +21,6 @@ import h5py
 import matplotlib.pyplot as plt
 import numpy as np
 import torch
-from matplotlib import cm
 from PIL import Image
 from transformers import SiglipProcessor
 
@@ -244,7 +243,7 @@ def draw_pred_gt_tracks_on_image(
     plt.imshow(img)
 
     k_steps = int(pred_uv.shape[0])
-    colors = cm.get_cmap("turbo", max(k_steps, 2))
+    colors = plt.get_cmap("turbo", max(k_steps, 2))
     for n in range(0, pred_uv.shape[1], stride):
         if gt_uv is not None:
             pts_g = gt_uv[:, n]
